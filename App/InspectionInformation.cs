@@ -16,5 +16,12 @@ namespace App
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Test to make sure input is being recieved.
+            MessageBox.Show($"The site {site.Text} is being inspected");
+
+        }
     }
 }

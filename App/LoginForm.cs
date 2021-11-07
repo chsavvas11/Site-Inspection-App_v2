@@ -32,10 +32,13 @@ namespace App
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
+            // If user is confirmed as an "inspector" they will be taken to the inspector dashboard.
             state.Username = username;
-            state.AccessLevel = Constants.ADMIN;
+            state.AccessLevel = Constants.INSPECTOR;
 
             navigateToApp();
         }
+
+
     }
 }
