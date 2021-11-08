@@ -8,8 +8,8 @@ namespace App
 {
     class ChecksCategory
     {
-        public static char index;
-        public static string name;
+        public char index { get; private set; }
+        public string name { get; private set; }
 
         public ChecksCategory(char newIndex, string newName)
         {
@@ -20,9 +20,9 @@ namespace App
 
     class Check
     {
-        public static int number;
-        public static string name;
-        public static char checkCategoryIndex;
+        public int number { get; private set; }
+        public string name { get; private set; }
+        public char checkCategoryIndex { get; private set; }
 
         public Check(int newNumber, string newName, char newCheckCategoryIndex)
         {

@@ -25,5 +25,25 @@ namespace App
                 }
             }
         }
+
+        // Returns checks for category that matches index passed
+        public static Check[] getChecksForCategory(char categoryIndex)
+        {
+            // Filter array to get checks that match the passed index
+            Check[] checksForCategory = (Check[])Constants.CHECKS.Where(check => check.checkCategoryIndex == categoryIndex);
+            
+            // Return result
+            return checksForCategory;
+        }
+
+        // Returns name of category that matches index passed
+        public static string getCategoryName(char categoryIndex)
+        {
+            // Find category that matches index passed inside categories array
+            ChecksCategory chosenCategory = Array.Find(Constants.CHECKS_CATEGORIES, category => category.index == categoryIndex);
+            
+            // Return result
+            return chosenCategory.name;
+        }
     }
 }
