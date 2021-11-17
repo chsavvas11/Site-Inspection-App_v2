@@ -45,5 +45,6 @@ namespace App
             // Return result
             return chosenCategory.name;
         }
+
     }
 }

@@ -30,7 +30,7 @@ namespace App
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.site = new System.Windows.Forms.TextBox();
+            this.siteTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,14 +39,14 @@ namespace App
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.completedBy = new System.Windows.Forms.TextBox();
-            this.date = new System.Windows.Forms.DateTimePicker();
-            this.workArea = new System.Windows.Forms.TextBox();
-            this.jobDescription = new System.Windows.Forms.TextBox();
-            this.supervisor = new System.Windows.Forms.TextBox();
-            this.inspector = new System.Windows.Forms.TextBox();
-            this.type = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.completedByTextBox = new System.Windows.Forms.TextBox();
+            this.dateSelector = new System.Windows.Forms.DateTimePicker();
+            this.workAreaTextBox = new System.Windows.Forms.TextBox();
+            this.jobDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.supervisorTextBox = new System.Windows.Forms.TextBox();
+            this.inspectorTextBox = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.informationSaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,12 +60,12 @@ namespace App
             this.label1.TabIndex = 0;
             this.label1.Text = "Health, Safety, Quality and Environmental Site Inspection";
             // 
-            // site
+            // siteTextbox
             // 
-            this.site.Location = new System.Drawing.Point(114, 167);
-            this.site.Name = "site";
-            this.site.Size = new System.Drawing.Size(170, 20);
-            this.site.TabIndex = 1;
+            this.siteTextbox.Location = new System.Drawing.Point(114, 167);
+            this.siteTextbox.Name = "siteTextbox";
+            this.siteTextbox.Size = new System.Drawing.Size(170, 20);
+            this.siteTextbox.TabIndex = 1;
             // 
             // label2
             // 
@@ -147,79 +147,79 @@ namespace App
             this.label9.TabIndex = 9;
             this.label9.Text = "Inspector:";
             // 
-            // completedBy
+            // completedByTextBox
             // 
-            this.completedBy.Location = new System.Drawing.Point(426, 165);
-            this.completedBy.Name = "completedBy";
-            this.completedBy.Size = new System.Drawing.Size(170, 20);
-            this.completedBy.TabIndex = 10;
+            this.completedByTextBox.Location = new System.Drawing.Point(426, 165);
+            this.completedByTextBox.Name = "completedByTextBox";
+            this.completedByTextBox.Size = new System.Drawing.Size(170, 20);
+            this.completedByTextBox.TabIndex = 10;
             // 
-            // date
+            // dateSelector
             // 
-            this.date.Location = new System.Drawing.Point(274, 97);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(146, 20);
-            this.date.TabIndex = 11;
+            this.dateSelector.Location = new System.Drawing.Point(274, 97);
+            this.dateSelector.Name = "dateSelector";
+            this.dateSelector.Size = new System.Drawing.Size(146, 20);
+            this.dateSelector.TabIndex = 11;
             // 
-            // workArea
+            // workAreaTextBox
             // 
-            this.workArea.Location = new System.Drawing.Point(114, 229);
-            this.workArea.Name = "workArea";
-            this.workArea.Size = new System.Drawing.Size(170, 20);
-            this.workArea.TabIndex = 12;
+            this.workAreaTextBox.Location = new System.Drawing.Point(114, 229);
+            this.workAreaTextBox.Name = "workAreaTextBox";
+            this.workAreaTextBox.Size = new System.Drawing.Size(170, 20);
+            this.workAreaTextBox.TabIndex = 12;
             // 
-            // jobDescription
+            // jobDescriptionTextBox
             // 
-            this.jobDescription.Location = new System.Drawing.Point(426, 232);
-            this.jobDescription.Name = "jobDescription";
-            this.jobDescription.Size = new System.Drawing.Size(170, 20);
-            this.jobDescription.TabIndex = 13;
+            this.jobDescriptionTextBox.Location = new System.Drawing.Point(426, 232);
+            this.jobDescriptionTextBox.Name = "jobDescriptionTextBox";
+            this.jobDescriptionTextBox.Size = new System.Drawing.Size(170, 20);
+            this.jobDescriptionTextBox.TabIndex = 13;
             // 
-            // supervisor
+            // supervisorTextBox
             // 
-            this.supervisor.Location = new System.Drawing.Point(114, 301);
-            this.supervisor.Name = "supervisor";
-            this.supervisor.Size = new System.Drawing.Size(170, 20);
-            this.supervisor.TabIndex = 14;
+            this.supervisorTextBox.Location = new System.Drawing.Point(114, 301);
+            this.supervisorTextBox.Name = "supervisorTextBox";
+            this.supervisorTextBox.Size = new System.Drawing.Size(170, 20);
+            this.supervisorTextBox.TabIndex = 14;
             // 
-            // inspector
+            // inspectorTextBox
             // 
-            this.inspector.Location = new System.Drawing.Point(426, 299);
-            this.inspector.Name = "inspector";
-            this.inspector.Size = new System.Drawing.Size(170, 20);
-            this.inspector.TabIndex = 15;
+            this.inspectorTextBox.Location = new System.Drawing.Point(426, 299);
+            this.inspectorTextBox.Name = "inspectorTextBox";
+            this.inspectorTextBox.Size = new System.Drawing.Size(170, 20);
+            this.inspectorTextBox.TabIndex = 15;
             // 
-            // type
+            // typeTextBox
             // 
-            this.type.Location = new System.Drawing.Point(114, 368);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(170, 20);
-            this.type.TabIndex = 16;
+            this.typeTextBox.Location = new System.Drawing.Point(114, 368);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.Size = new System.Drawing.Size(170, 20);
+            this.typeTextBox.TabIndex = 16;
             // 
-            // button1
+            // informationSaveButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(426, 368);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 36);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "SUBMIT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.informationSaveButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.informationSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.informationSaveButton.Location = new System.Drawing.Point(426, 368);
+            this.informationSaveButton.Name = "informationSaveButton";
+            this.informationSaveButton.Size = new System.Drawing.Size(118, 36);
+            this.informationSaveButton.TabIndex = 17;
+            this.informationSaveButton.Text = "SUBMIT";
+            this.informationSaveButton.UseVisualStyleBackColor = false;
+            this.informationSaveButton.Click += new System.EventHandler(this.informationSaveButton_Click);
             // 
             // InspectionInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.type);
-            this.Controls.Add(this.inspector);
-            this.Controls.Add(this.supervisor);
-            this.Controls.Add(this.jobDescription);
-            this.Controls.Add(this.workArea);
-            this.Controls.Add(this.date);
-            this.Controls.Add(this.completedBy);
+            this.Controls.Add(this.informationSaveButton);
+            this.Controls.Add(this.typeTextBox);
+            this.Controls.Add(this.inspectorTextBox);
+            this.Controls.Add(this.supervisorTextBox);
+            this.Controls.Add(this.jobDescriptionTextBox);
+            this.Controls.Add(this.workAreaTextBox);
+            this.Controls.Add(this.dateSelector);
+            this.Controls.Add(this.completedByTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -228,7 +228,7 @@ namespace App
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.site);
+            this.Controls.Add(this.siteTextbox);
             this.Controls.Add(this.label1);
             this.Name = "InspectionInformation";
             this.Padding = new System.Windows.Forms.Padding(1);
@@ -241,7 +241,7 @@ namespace App
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox site;
+        private System.Windows.Forms.TextBox siteTextbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -250,13 +250,13 @@ namespace App
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox completedBy;
-        private System.Windows.Forms.DateTimePicker date;
-        private System.Windows.Forms.TextBox workArea;
-        private System.Windows.Forms.TextBox jobDescription;
-        private System.Windows.Forms.TextBox supervisor;
-        private System.Windows.Forms.TextBox inspector;
-        private System.Windows.Forms.TextBox type;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox completedByTextBox;
+        private System.Windows.Forms.DateTimePicker dateSelector;
+        private System.Windows.Forms.TextBox workAreaTextBox;
+        private System.Windows.Forms.TextBox jobDescriptionTextBox;
+        private System.Windows.Forms.TextBox supervisorTextBox;
+        private System.Windows.Forms.TextBox inspectorTextBox;
+        private System.Windows.Forms.TextBox typeTextBox;
+        private System.Windows.Forms.Button informationSaveButton;
     }
 }
