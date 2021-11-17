@@ -36,6 +36,7 @@ namespace App
 
             //Validation
             // All entry text boxes are checked to see if they are empty
+            // Date selctor is always pre filled in, therefore date field does not need checking
             if (String.IsNullOrWhiteSpace(site) ||
                String.IsNullOrWhiteSpace(workArea) ||
                String.IsNullOrWhiteSpace(supervisor) ||
