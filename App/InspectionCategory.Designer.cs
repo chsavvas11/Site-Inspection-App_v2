@@ -42,6 +42,7 @@ namespace App
             this.CompletionSelectionLabel = new System.Windows.Forms.Label();
             this.IsCompletedTextBox = new System.Windows.Forms.ComboBox();
             this.saveCheckButton = new System.Windows.Forms.Button();
+            this.categoryPageTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkSelectionDropdown
@@ -157,10 +158,21 @@ namespace App
             this.saveCheckButton.UseVisualStyleBackColor = true;
             this.saveCheckButton.Click += new System.EventHandler(this.saveCheckButton_Click);
             // 
+            // categoryPageTitle
+            // 
+            this.categoryPageTitle.AutoSize = true;
+            this.categoryPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryPageTitle.Location = new System.Drawing.Point(33, 14);
+            this.categoryPageTitle.Name = "categoryPageTitle";
+            this.categoryPageTitle.Size = new System.Drawing.Size(93, 31);
+            this.categoryPageTitle.TabIndex = 13;
+            this.categoryPageTitle.Text = "autofill";
+            // 
             // InspectionCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.categoryPageTitle);
             this.Controls.Add(this.saveCheckButton);
             this.Controls.Add(this.IsCompletedTextBox);
             this.Controls.Add(this.CompletionSelectionLabel);
@@ -196,5 +208,6 @@ namespace App
         private System.Windows.Forms.Label CompletionSelectionLabel;
         private System.Windows.Forms.ComboBox IsCompletedTextBox;
         private System.Windows.Forms.Button saveCheckButton;
+        private System.Windows.Forms.Label categoryPageTitle;
     }
 }

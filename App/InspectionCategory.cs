@@ -14,12 +14,14 @@ namespace App
     {
         private State state = State.getState();
 
-        // Array created to store the entered data.
+        // Array created to store the selected checks.
         private Check[] checks;
 
         public InspectionCategory()
         {
             InitializeComponent();
+            // Display the name of the category being inspected at the top of the screen
+            //categoryPageTitle.Text = Utils.getCategoryName(state.ChosenCategoryIndex);
         }
 
         private void checkSelectionDropDown_Click(object sender, EventArgs e)
@@ -60,6 +62,9 @@ namespace App
             positiveInterventionCommentsTextBox.Clear();
             NegativeInterventionAmountTextBox.Clear();
             NegativeInterventionCommentsTextBox.Clear();
+            // This will make sure that the selected option is not saved on the combobox for the next check
+            checkSelectionDropdown.SelectedIndex = -1;
+            IsCompletedTextBox.SelectedIndex = -1;
 
             Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
 

@@ -18,6 +18,8 @@ namespace App
         // The below variable will store the inspectors category choice.
         public char ChosenCategoryIndex { get; set; }
 
+        // Array to store check data from the check forms
+        public string[] CheckData;
 
         public static State getState()
         {
