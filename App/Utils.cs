@@ -30,7 +30,7 @@ namespace App
         public static Check[] getChecksForCategory(char categoryIndex)
         {
             // Filter array to get checks that match the passed index
-            Check[] checksForCategory = (Check[])Constants.CHECKS.Where(check => check.checkCategoryIndex == categoryIndex);
+            Check[] checksForCategory = Constants.CHECKS.Where(check => check.checkCategoryIndex == categoryIndex).ToArray();
             
             // Return result
             return checksForCategory;

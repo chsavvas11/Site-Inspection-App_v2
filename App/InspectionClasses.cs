@@ -44,6 +44,8 @@ namespace App
         public string supervisor { get; private set; }
         public string type { get; private set; }
 
+        /* This method stores the inspection information in variables.
+        The data will be fetched from the inspection information class */
         public InspectionInformationData(string newSite, DateTime newDate, string newJobDescription, string newInspector, string newCompletedBy, string newWorkArea, string newSupervisor, string newType)
         {
             site = newSite;
@@ -60,12 +62,27 @@ namespace App
 
     class CheckData
     {
-        // Variables for the check form are created.
-        public string numberOfInterventions { get; set; }
-        public string comment { get; set; }
-        public string completionStatus { get; set; }
-        public string actionTaken { get; set; }
+        // Variables for the check form are created
+        // Get and set are used to retrieve data from the variables in the InspectionCategory class
+        public string selectedCheck { get; private set; }
+        public string positiveInterventionAmount { get; private set; }
+        public string positiveInterventionComments { get; private set; }
+        public string negativeInterventionAmount { get; private set; }
+        public string negativeInterventionComments { get; private set; }
+        public string isCompleted { get; private set; }
 
+        //public int checkNumber { get; private set; }
 
+        // The checkData method takes all the data from the check form and stores it in variables
+        public CheckData(string newSelectedCheck, string newPositiveInterventionAmount, string newPositiveInterventionComments, string newNegativeInterventionAmount, string newNegativeInterventionComments, string newIsCompleted)
+        {
+            selectedCheck = newSelectedCheck;
+            positiveInterventionAmount = newPositiveInterventionAmount;
+            positiveInterventionComments = newPositiveInterventionComments;
+            negativeInterventionAmount = newNegativeInterventionAmount;
+            negativeInterventionComments = newNegativeInterventionComments;
+            isCompleted = newIsCompleted;
+            //checkNumber = newCheckNumber;
+        }
     }
 }

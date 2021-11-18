@@ -54,7 +54,7 @@ namespace App
                 /* If all fields are complete the entered data will be saved in the global variables in InspectionClasses
                    and the categories selection page will appear */
                 InspectionInformationData inspectionInformation = new InspectionInformationData(site, date, supervisor, type, completedBy, jobDescription, inspector, workArea);
-                Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+                Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
             }
 
 

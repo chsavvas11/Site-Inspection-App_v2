@@ -14,21 +14,58 @@ namespace App
 {
     public partial class InspectionMenu : UserControl
     {
+        private State state = State.getState();
         public InspectionMenu()
         {
             InitializeComponent();
         }
 
-        private void newInspection_Click(object sender, EventArgs e)
+        // Each button on the InspectionMenu page is assigned to a index value which is used to display the correct check options
+        private void workingStandardsSelection_Click(object sender, EventArgs e)
         {
-            //to confirm use of navigateTo method
-            //Utils.navigateTo(InspectionInformation);
+            state.ChosenCategoryIndex = 'A';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
         }
 
-        private void viewInspections_Click(object sender, EventArgs e)
+        private void qualitySelection_Click(object sender, EventArgs e)
         {
-            //to confirm use of navigateTo method
-            //Utils.navigateTo(InspectionsList);
+            state.ChosenCategoryIndex = 'B';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void siteRulesSelection_Click(object sender, EventArgs e)
+        {
+            state.ChosenCategoryIndex = 'C';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void environmentalSelection_Click(object sender, EventArgs e)
+        {
+            state.ChosenCategoryIndex = 'D';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void POISelection_Click(object sender, EventArgs e)
+        {
+            state.ChosenCategoryIndex = 'E';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void TCOESelection_Click(object sender, EventArgs e)
+        {
+            state.ChosenCategoryIndex = 'F';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void miscellaneousSelection_Click(object sender, EventArgs e)
+        {
+            state.ChosenCategoryIndex = 'G';
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionCategory));
+        }
+
+        private void CompleteInspectionButton_Click(object sender, EventArgs e)
+        {
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionOverview));
         }
     }
 }
