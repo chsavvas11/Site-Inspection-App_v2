@@ -55,7 +55,13 @@ namespace App
             string negativeInterventionComment = NegativeInterventionCommentsTextBox.Text;
             string isCompleted = IsCompletedTextBox.Text;
 
-            CheckData checkDetails = new CheckData(selectedCheck, positiveInterventionAmount,positiveInterventionComments, negativeInterventionAmount, negativeInterventionComment, isCompleted);
+            // Create new CheckData object
+            CheckData checkData = new CheckData(selectedCheck, positiveInterventionAmount,positiveInterventionComments, negativeInterventionAmount, negativeInterventionComment, isCompleted);
+            
+            // Store CheckData object to state using ternary operators
+            state.CollectedCheckData = (state.CollectedCheckData == null)
+                ? new CheckData[] { checkData }
+                : state.CollectedCheckData.Concat(new CheckData[] { checkData }).ToArray();
 
             // The .Clear function is used to clear the input boxes for the next check form
             positiveInterventionAmountTextBox.Clear();

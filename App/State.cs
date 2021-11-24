@@ -13,13 +13,14 @@ namespace App
         public string Username { get; set; }
         public string AccessLevel { get; set; }
 
-        //public InspectionInformationData CollectedInspectionInformation{ get; set; }
-
         // The below variable will store the inspectors category choice.
         public char ChosenCategoryIndex { get; set; }
 
+        // Array to store inspection information from form
+        public InspectionInformationData CollectedInspectionInformation { get; set; }
+
         // Array to store check data from the check forms
-        public string[] CheckData;
+        public CheckData[] CollectedCheckData { get; set; }
 
         public static State getState()
         {
