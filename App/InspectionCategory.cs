@@ -34,7 +34,13 @@ namespace App
             the chosenCategoryIndex to the dropdown menu */
             foreach (Check check in checks)
             {
-                checkSelectionDropdown.Items.Add(check.name);
+
+                // Only add the check to the dropdown if it has not been completed already
+                // Use double question mark operator to return empty array is no check data has been collected as the array in state is null initially
+                if (!(state.CollectedCheckData ?? new CheckData[] {}).Select(checkData => checkData.checkName).ToArray().Contains(check.name))
+                {
+                    checkSelectionDropdown.Items.Add(check.name);
+                }
             }
     
         }
@@ -48,15 +54,18 @@ namespace App
         // The saveCheckButton_click even will result in the user inputs being saved to variables and then being sent to the CheckData class
         private void saveCheckButton_Click(object sender, EventArgs e)
         {
-            string selectedCheck = checkSelectionDropdown.Text;
-            string positiveInterventionAmount = positiveInterventionAmountTextBox.Text;
+            string checkName = checkSelectionDropdown.Text;
+            int positiveInterventionAmount = int.Parse(positiveInterventionAmountTextBox.Text);
             string positiveInterventionComments = positiveInterventionCommentsTextBox.Text;
-            string negativeInterventionAmount = NegativeInterventionAmountTextBox.Text;
+            int negativeInterventionAmount = int.Parse(NegativeInterventionAmountTextBox.Text);
             string negativeInterventionComment = NegativeInterventionCommentsTextBox.Text;
             string isCompleted = IsCompletedTextBox.Text;
 
+            // Use util to get check number
+            int checkNumber = Utils.getCheckNumberForName(checkName);
+
             // Create new CheckData object
-            CheckData checkData = new CheckData(selectedCheck, positiveInterventionAmount,positiveInterventionComments, negativeInterventionAmount, negativeInterventionComment, isCompleted);
+            CheckData checkData = new CheckData(checkName, positiveInterventionAmount,positiveInterventionComments, negativeInterventionAmount, negativeInterventionComment, isCompleted, checkNumber);
             
             // Store CheckData object to state using ternary operators
             state.CollectedCheckData = (state.CollectedCheckData == null)

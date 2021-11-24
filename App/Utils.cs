@@ -46,5 +46,15 @@ namespace App
             return chosenCategory.name;
         }
 
+        // Returns number for check that matches name passed
+        public static int getCheckNumberForName(string name)
+        {
+            // Find check whose name matches passed name
+            Check chosenCheck = Array.Find(Constants.CHECKS, check => check.name == name);
+
+            // Return result
+            return chosenCheck.number;
+        }
+
     }
 }

@@ -64,28 +64,26 @@ namespace App
     {
         // Variables for the check form are created
         // Get and set are used to retrieve data from the variables in the InspectionCategory class
-        public string selectedCheck { get; private set; }
-        public string positiveInterventionAmount { get; private set; }
+        public string checkName { get; private set; }
+        public int positiveInterventionAmount { get; private set; }
         public string positiveInterventionComments { get; private set; }
-        public string negativeInterventionAmount { get; private set; }
+        public int negativeInterventionAmount { get; private set; }
         public string negativeInterventionComments { get; private set; }
         public string isCompleted { get; private set; }
 
-        //public int checkNumber { get; private set; }
+        public int checkNumber { get; private set; }
 
         // The checkData method takes all the data from the check form and stores it in variables
-        public CheckData(string newSelectedCheck, string newPositiveInterventionAmount, string newPositiveInterventionComments, string newNegativeInterventionAmount, string newNegativeInterventionComments, string newIsCompleted)
+        public CheckData(string newCheckName, int newPositiveInterventionAmount, string newPositiveInterventionComments, int newNegativeInterventionAmount, string newNegativeInterventionComments, string newIsCompleted, int newCheckNumber)
         {
-            selectedCheck = newSelectedCheck;
+            checkName = newCheckName;
             positiveInterventionAmount = newPositiveInterventionAmount;
             positiveInterventionComments = newPositiveInterventionComments;
             negativeInterventionAmount = newNegativeInterventionAmount;
             negativeInterventionComments = newNegativeInterventionComments;
             isCompleted = newIsCompleted;
-            //checkNumber = newCheckNumber;
+            checkNumber = newCheckNumber;
         }
-
-        
 
     }
 }
