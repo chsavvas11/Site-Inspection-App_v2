@@ -66,5 +66,37 @@ namespace App
             return dataSet;
 
         }
+
+        /**
+         * Method that saves new user into the database
+         */
+        public void createNewUser(string sqlQuery, string username, string password, string accessLevel, string firstName, string lastName)
+        {
+            using (SqlConnection connectionToDB = new SqlConnection(connectionString))
+            {
+                // Open the connection
+                connectionToDB.Open();
+
+                // Create SqlCommand
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connectionToDB);
+
+                // Set the sqlCommand's properties
+                sqlCommand.CommandType = CommandType.Text;
+
+                // Add the parameters to the command
+                sqlCommand.Parameters.Add(new SqlParameter("username", username));
+                sqlCommand.Parameters.Add(new SqlParameter("password", password));
+                sqlCommand.Parameters.Add(new SqlParameter("access_level", accessLevel));
+                sqlCommand.Parameters.Add(new SqlParameter("first_name", firstName));
+                sqlCommand.Parameters.Add(new SqlParameter("last_name", lastName));
+
+                // Execute the command
+                sqlCommand.ExecuteNonQuery();
+
+                // Close the connection
+                connectionToDB.Close();
+            }
+
+        }
     }
 }

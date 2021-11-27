@@ -12,6 +12,10 @@ namespace App
         public static string ADMIN = "ADMIN";
         public static string INSPECTOR = "INSPECTOR";
 
+        // SQL queries
+        public static string SELECT_USER_WITH_LOGIN_CREDENTIALS(string username, string password) => $"SELECT * FROM [User] WHERE username = '{username}' AND password = '{password}'";
+        public static string NEW_USER = "INSERT INTO [User] (username, password, access_level, first_name, last_name) VALUES (@username, @password, @access_level, @first_name, @last_name)";
+
         // Inspection Categories
         public static ChecksCategory[] CHECKS_CATEGORIES =
         {
