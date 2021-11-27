@@ -111,6 +111,7 @@ namespace App
             this.submitInspectionButton.TabIndex = 4;
             this.submitInspectionButton.Text = "Submit";
             this.submitInspectionButton.UseVisualStyleBackColor = true;
+            this.submitInspectionButton.Click += new System.EventHandler(this.submitInspectionButton_Click);
             // 
             // InspectionOverview
             // 

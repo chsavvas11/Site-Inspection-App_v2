@@ -46,5 +46,23 @@ namespace App
                 }
             }
         }
+
+        private void submitInspectionButton_Click(object sender, EventArgs e)
+        {
+            // Get comments from TextBox
+            string comments = commentsTextBox.Text.Trim();
+            
+            // Check if comments is null or whitespace
+            if (string.IsNullOrWhiteSpace(comments))
+            {
+                // Alert user
+                MessageBox.Show("Please enter comments.");
+
+                // Return to avoid running next code block
+                return;
+            }
+
+            // SAVE INSPECTION TO DB HERE
+        }
     }
 }
