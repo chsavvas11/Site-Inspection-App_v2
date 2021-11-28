@@ -54,37 +54,68 @@ namespace App
         // The saveCheckButton_click even will result in the user inputs being saved to variables and then being sent to the CheckData class
         private void saveCheckButton_Click(object sender, EventArgs e)
         {
+
+            /*   if (String.IsNullOrWhiteSpace(site) ||
+                  String.IsNullOrWhiteSpace(workArea) ||
+                  String.IsNullOrWhiteSpace(supervisor) ||
+                  String.IsNullOrWhiteSpace(type) ||
+                  String.IsNullOrWhiteSpace(completedBy) ||
+                  String.IsNullOrWhiteSpace(jobDescription) ||
+                  String.IsNullOrWhiteSpace(inspector))
+               {
+            */
+
+            
+
             string checkName = checkSelectionDropdown.Text;
             int positiveInterventionAmount = int.Parse(positiveInterventionAmountTextBox.Text);
             string positiveInterventionComments = positiveInterventionCommentsTextBox.Text;
             int negativeInterventionAmount = int.Parse(NegativeInterventionAmountTextBox.Text);
-            string negativeInterventionComment = NegativeInterventionCommentsTextBox.Text;
+            string negativeInterventionComments = NegativeInterventionCommentsTextBox.Text;
             string isCompleted = IsCompletedTextBox.Text;
 
-            // Use util to get check number
-            int checkNumber = Utils.getCheckNumberForName(checkName);
+            // Input validation.
 
-            // Create new CheckData object
-            CheckData checkData = new CheckData(checkName, positiveInterventionAmount,positiveInterventionComments, negativeInterventionAmount, negativeInterventionComment, isCompleted, checkNumber);
-            
-            // Store CheckData object to state using ternary operators
-            state.CollectedCheckData = (state.CollectedCheckData == null)
-                ? new CheckData[] { checkData }
-                : state.CollectedCheckData.Concat(new CheckData[] { checkData }).ToArray();
+            if (String.IsNullOrWhiteSpace(checkName) ||
+                //int.Parse(positiveInterventionAmount) ||
+                String.IsNullOrWhiteSpace(positiveInterventionComments) ||
+                //int.Parse(positiveInterventionAmount) ||
+                String.IsNullOrWhiteSpace(negativeInterventionComments) ||
+                String.IsNullOrWhiteSpace(isCompleted))
 
-            // The .Clear function is used to clear the input boxes for the next check form
-            positiveInterventionAmountTextBox.Clear();
-            positiveInterventionCommentsTextBox.Clear();
-            NegativeInterventionAmountTextBox.Clear();
-            NegativeInterventionCommentsTextBox.Clear();
-            // This will make sure that the selected option is not saved on the combobox for the next check
-            checkSelectionDropdown.SelectedIndex = -1;
-            IsCompletedTextBox.SelectedIndex = -1;
+            {
+                MessageBox.Show("All fields marked with * must be filled");
+            }
+            else
+            {
 
-            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
 
-            //MessageBox.Show($"The following chech has been completed{selectedCheck} ");
-            // MessageBox.Show($"The site {siteTextbox.Text} is being inspected");
+
+                // Use util to get check number
+                int checkNumber = Utils.getCheckNumberForName(checkName);
+
+                // Create new CheckData object
+                CheckData checkData = new CheckData(checkName, positiveInterventionAmount, positiveInterventionComments, negativeInterventionAmount, negativeInterventionComments, isCompleted, checkNumber);
+
+                // Store CheckData object to state using ternary operators
+                state.CollectedCheckData = (state.CollectedCheckData == null)
+                    ? new CheckData[] { checkData }
+                    : state.CollectedCheckData.Concat(new CheckData[] { checkData }).ToArray();
+
+                // The .Clear function is used to clear the input boxes for the next check form
+                positiveInterventionAmountTextBox.Clear();
+                positiveInterventionCommentsTextBox.Clear();
+                NegativeInterventionAmountTextBox.Clear();
+                NegativeInterventionCommentsTextBox.Clear();
+                // This will make sure that the selected option is not saved on the combobox for the next check
+                checkSelectionDropdown.SelectedIndex = -1;
+                IsCompletedTextBox.SelectedIndex = -1;
+
+                Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
+
+                //MessageBox.Show($"The following chech has been completed{selectedCheck} ");
+                // MessageBox.Show($"The site {siteTextbox.Text} is being inspected");
+            }
         }
     }
 }
