@@ -53,7 +53,7 @@ namespace App
             {
                 /* If all fields are complete the entered data will be saved in the global variables in InspectionClasses
                    and the categories selection page will appear */
-                InspectionInformationData inspectionInformation = new InspectionInformationData(site, date, supervisor, type, completedBy, jobDescription, inspector, workArea);
+                InspectionInformationData inspectionInformation = new InspectionInformationData(site, date, jobDescription, inspector, completedBy, workArea, supervisor, type);
 
                 // Store InspectionInformationData object to state
                 state.CollectedInspectionInformation = inspectionInformation;

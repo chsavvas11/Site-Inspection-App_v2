@@ -51,7 +51,7 @@ namespace App
         {
             // Get comments from TextBox
             string comments = commentsTextBox.Text.Trim();
-            
+
             // Check if comments is null or whitespace
             if (string.IsNullOrWhiteSpace(comments))
             {
@@ -63,6 +63,15 @@ namespace App
             }
 
             // SAVE INSPECTION TO DB HERE
+            DBConnection.getInstanceOfDBConnection().createInspection(Constants.NEW_INSPECTION_QUERY, state.CollectedInspectionInformation);
+            DBConnection.getInstanceOfDBConnection().createInspectionChecks(Constants.NEW_INSPECTION_CHECK_QUERY, state.CollectedCheckData);
+
+            //DataSet dataSet = DBConnection.getInstanceOfDBConnection().getDataSet("SELECT * FROM [Inspection]");
+
+            //DataTable dataTable = dataSet.Tables[0];
+
+            // If a record exists then user credentials are correct
+            //MessageBox.Show(dataTable.Rows.Count.ToString());
         }
     }
 }

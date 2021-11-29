@@ -89,7 +89,7 @@ namespace App
                 int checkNumber = Utils.getCheckNumberForName(checkName);
 
                 // Create new CheckData object
-                CheckData checkData = new CheckData(checkName, positiveInterventionAmountInt, positiveInterventionComments, negativeInterventionAmountInt, negativeInterventionComments, isCompleted, checkNumber);
+                CheckData checkData = new CheckData(checkName, positiveInterventionAmountInt, positiveInterventionComments, negativeInterventionAmountInt, negativeInterventionComments, isCompleted == "Yes" ? true : false, checkNumber);
 
                 // Store CheckData object to state using ternary operators
                 state.CollectedCheckData = (state.CollectedCheckData == null)

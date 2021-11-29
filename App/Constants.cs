@@ -14,8 +14,10 @@ namespace App
 
         // SQL queries
         public static string SELECT_USER_WITH_LOGIN_CREDENTIALS(string username, string password) => $"SELECT * FROM [User] WHERE username = '{username}' AND password = '{password}'";
-        public static string NEW_USER = "INSERT INTO [User] (username, password, access_level, first_name, last_name) VALUES (@username, @password, @access_level, @first_name, @last_name)";
-
+        public static string NEW_USER_QUERY = "INSERT INTO [User] (username, password, access_level, first_name, last_name) VALUES (@username, @password, @access_level, @first_name, @last_name)";
+        public static string NEW_INSPECTION_QUERY = "INSERT INTO [Inspection] (site, work_area, supervisor, completed_by, job_description, inspector_name, date, type) VALUES (@site, @work_area, @supervisor, @completed_by, @job_description, @inspector_name, @date, @type)";
+        public static string NEW_INSPECTION_CHECK_QUERY = "INSERT INTO [InspectionCheck] (check_number, negative_interventions, negative_comments, positive_interventions, positive_comments, is_completed) VALUES (@check_number, @negative_interventions, @negative_comments, @positive_interventions, @positive_comments, @is_completed)";
+        
         // Inspection Categories
         public static ChecksCategory[] CHECKS_CATEGORIES =
         {

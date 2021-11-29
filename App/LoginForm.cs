@@ -19,8 +19,8 @@ namespace App
             InitializeComponent();
 
             // Create a user for each access level
-            DBConnection.getInstanceOfDBConnection().createNewUser(Constants.NEW_USER, "inspector", "password", Constants.INSPECTOR, "John", "Doe");
-            DBConnection.getInstanceOfDBConnection().createNewUser(Constants.NEW_USER, "admin", "password", Constants.ADMIN, "Chris", "Noe");
+            DBConnection.getInstanceOfDBConnection().createNewUser(Constants.NEW_USER_QUERY, "inspector", "password", Constants.INSPECTOR, "John", "Doe");
+            DBConnection.getInstanceOfDBConnection().createNewUser(Constants.NEW_USER_QUERY, "admin", "password", Constants.ADMIN, "Chris", "Noe");
         }
 
         // Navigates to app

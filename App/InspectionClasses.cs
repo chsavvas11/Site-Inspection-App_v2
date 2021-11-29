@@ -69,12 +69,12 @@ namespace App
         public string positiveInterventionComments { get; private set; }
         public int negativeInterventionAmount { get; private set; }
         public string negativeInterventionComments { get; private set; }
-        public string isCompleted { get; private set; }
+        public bool isCompleted { get; private set; }
 
         public int checkNumber { get; private set; }
 
         // The checkData method takes all the data from the check form and stores it in variables
-        public CheckData(string newCheckName, int newPositiveInterventionAmount, string newPositiveInterventionComments, int newNegativeInterventionAmount, string newNegativeInterventionComments, string newIsCompleted, int newCheckNumber)
+        public CheckData(string newCheckName, int newPositiveInterventionAmount, string newPositiveInterventionComments, int newNegativeInterventionAmount, string newNegativeInterventionComments, bool newIsCompleted, int newCheckNumber)
         {
             checkName = newCheckName;
             positiveInterventionAmount = newPositiveInterventionAmount;

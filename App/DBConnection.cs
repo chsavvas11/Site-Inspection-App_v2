@@ -98,5 +98,69 @@ namespace App
             }
 
         }
+
+        public void createInspection(string sqlQuery, InspectionInformationData newInspectionInformation)
+        {
+            using (SqlConnection connectionToDB = new SqlConnection(connectionString))
+            {
+                // Open the connection
+                connectionToDB.Open();
+
+                // Create SqlCommand
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connectionToDB);
+
+                // Set the sqlCommand's properties
+                sqlCommand.CommandType = CommandType.Text;
+
+                // Add the parameters to the command
+                //sqlCommand.Parameters.Add(new SqlParameter("username", username));
+                sqlCommand.Parameters.Add(new SqlParameter("site", newInspectionInformation.site));
+                sqlCommand.Parameters.Add(new SqlParameter("work_area", newInspectionInformation.workArea));
+                sqlCommand.Parameters.Add(new SqlParameter("supervisor", newInspectionInformation.supervisor));
+                sqlCommand.Parameters.Add(new SqlParameter("completed_by", newInspectionInformation.completedBy));
+                sqlCommand.Parameters.Add(new SqlParameter("job_description", newInspectionInformation.jobDescription));
+                sqlCommand.Parameters.Add(new SqlParameter("inspector_name", newInspectionInformation.inspector));
+                sqlCommand.Parameters.Add(new SqlParameter("date", newInspectionInformation.date));
+                sqlCommand.Parameters.Add(new SqlParameter("type", newInspectionInformation.type));
+                // Execute the command
+                sqlCommand.ExecuteNonQuery();
+
+                // Close the connection
+                connectionToDB.Close();
+            }
+        }
+
+        public void createInspectionChecks(string sqlQuery, CheckData[] newCheckDataArray)
+        {
+            using (SqlConnection connectionToDB = new SqlConnection(connectionString))
+            {
+                // Open the connection
+                connectionToDB.Open();
+
+                //sqlCommand.Parameters.Add(new SqlParameter("username", username));
+                foreach (CheckData checkData in newCheckDataArray)
+                {
+                    // Create SqlCommand
+                    SqlCommand sqlCommand = new SqlCommand(sqlQuery, connectionToDB);
+
+                    // Set the sqlCommand's properties
+                    sqlCommand.CommandType = CommandType.Text;
+
+                    // Add the parameters to the command
+                    sqlCommand.Parameters.Add(new SqlParameter("check_number", checkData.checkNumber));
+                    sqlCommand.Parameters.Add(new SqlParameter("negative_interventions", checkData.negativeInterventionAmount));
+                    sqlCommand.Parameters.Add(new SqlParameter("negative_comments", checkData.negativeInterventionComments));
+                    sqlCommand.Parameters.Add(new SqlParameter("positive_interventions", checkData.positiveInterventionAmount));
+                    sqlCommand.Parameters.Add(new SqlParameter("positive_comments", checkData.positiveInterventionComments));
+                    sqlCommand.Parameters.Add(new SqlParameter("is_completed", checkData.isCompleted));
+
+                    // Execute the command
+                    sqlCommand.ExecuteNonQuery();
+                }
+
+                // Close the connection
+                connectionToDB.Close();
+            }
+        }
     }
 }
