@@ -49,37 +49,30 @@ namespace App
         {
             // Clicking the back button with call the navigateTo function to go back to the previous page
             Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
+            this.Visible = false;
         }
 
         // The saveCheckButton_click even will result in the user inputs being saved to variables and then being sent to the CheckData class
         private void saveCheckButton_Click(object sender, EventArgs e)
         {
 
-            /*   if (String.IsNullOrWhiteSpace(site) ||
-                  String.IsNullOrWhiteSpace(workArea) ||
-                  String.IsNullOrWhiteSpace(supervisor) ||
-                  String.IsNullOrWhiteSpace(type) ||
-                  String.IsNullOrWhiteSpace(completedBy) ||
-                  String.IsNullOrWhiteSpace(jobDescription) ||
-                  String.IsNullOrWhiteSpace(inspector))
-               {
-            */
 
             
 
             string checkName = checkSelectionDropdown.Text;
-            int positiveInterventionAmount = int.Parse(positiveInterventionAmountTextBox.Text);
+            string positiveInterventionAmount = positiveInterventionAmountTextBox.Text;
             string positiveInterventionComments = positiveInterventionCommentsTextBox.Text;
-            int negativeInterventionAmount = int.Parse(NegativeInterventionAmountTextBox.Text);
+            string negativeInterventionAmount = NegativeInterventionAmountTextBox.Text;
             string negativeInterventionComments = NegativeInterventionCommentsTextBox.Text;
             string isCompleted = IsCompletedTextBox.Text;
+      
 
             // Input validation.
 
             if (String.IsNullOrWhiteSpace(checkName) ||
-                //int.Parse(positiveInterventionAmount) ||
+                (String.IsNullOrWhiteSpace(positiveInterventionAmount) && !int.TryParse(positiveInterventionAmount, out int i)) ||
                 String.IsNullOrWhiteSpace(positiveInterventionComments) ||
-                //int.Parse(positiveInterventionAmount) ||
+                (String.IsNullOrWhiteSpace(positiveInterventionAmount) && !int.TryParse(negativeInterventionAmount, out int j)) ||
                 String.IsNullOrWhiteSpace(negativeInterventionComments) ||
                 String.IsNullOrWhiteSpace(isCompleted))
 
@@ -89,13 +82,14 @@ namespace App
             else
             {
 
-
+                int positiveInterventionAmountInt = int.Parse(positiveInterventionAmount);
+                int negativeInterventionAmountInt = int.Parse(negativeInterventionAmount);
 
                 // Use util to get check number
                 int checkNumber = Utils.getCheckNumberForName(checkName);
 
                 // Create new CheckData object
-                CheckData checkData = new CheckData(checkName, positiveInterventionAmount, positiveInterventionComments, negativeInterventionAmount, negativeInterventionComments, isCompleted, checkNumber);
+                CheckData checkData = new CheckData(checkName, positiveInterventionAmountInt, positiveInterventionComments, negativeInterventionAmountInt, negativeInterventionComments, isCompleted, checkNumber);
 
                 // Store CheckData object to state using ternary operators
                 state.CollectedCheckData = (state.CollectedCheckData == null)
@@ -113,9 +107,20 @@ namespace App
 
                 Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectionMenu));
 
-                //MessageBox.Show($"The following chech has been completed{selectedCheck} ");
-                // MessageBox.Show($"The site {siteTextbox.Text} is being inspected");
+                this.Visible = false;
+
             }
+        }
+
+        private void InspectionCategory_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+
+            {
+                categoryPageTitle.Text = Utils.getCategoryName(state.ChosenCategoryIndex);
+
+            }
+
         }
     }
 }

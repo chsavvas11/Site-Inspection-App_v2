@@ -188,6 +188,7 @@ namespace App
             this.Controls.Add(this.checkSelectionDropdown);
             this.Name = "InspectionCategory";
             this.Size = new System.Drawing.Size(656, 450);
+            this.VisibleChanged += new System.EventHandler(this.InspectionCategory_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

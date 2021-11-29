@@ -52,8 +52,8 @@ namespace App
 
                 // Set state
                 state.Username = username;
-                // state.AccessLevel = accessLevel;
-                state.AccessLevel = Constants.INSPECTOR;
+                state.AccessLevel = accessLevel;
+ 
 
                 // Navigate to app
                 navigateToApp();
