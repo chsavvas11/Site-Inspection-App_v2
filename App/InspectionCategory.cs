@@ -17,6 +17,7 @@ namespace App
         // Array created to store the selected checks.
         private Check[] checks;
 
+
         public InspectionCategory()
         {
             InitializeComponent();
@@ -81,9 +82,9 @@ namespace App
             }
             else
             {
-
-                int positiveInterventionAmountInt = int.Parse(positiveInterventionAmount);
                 int negativeInterventionAmountInt = int.Parse(negativeInterventionAmount);
+                int positiveInterventionAmountInt = int.Parse(positiveInterventionAmount);
+
 
                 // Use util to get check number
                 int checkNumber = Utils.getCheckNumberForName(checkName);
@@ -119,6 +120,52 @@ namespace App
             {
                 categoryPageTitle.Text = Utils.getCategoryName(state.ChosenCategoryIndex);
 
+            }
+
+        }
+
+        private void PositiveInterventionAmountTextBox_Leave(object sender, EventArgs e)
+        {
+            lbPositiveInterventions.Visible = false;
+
+            // Try and catch is used to deal with the integer exception
+            try
+            {
+                // .Parse just checks if an integer is entered
+                int.Parse(positiveInterventionAmountTextBox.Text);
+            }
+            catch
+            {
+                // If an integer is not entered, the user will be alerted. They will not be able to move to the next box until they enter an integer.
+                MessageBox.Show("An integer must be entered for intervention amount");
+                positiveInterventionAmountTextBox.Focus();
+                // A message will be displayed next to the box the user needs to fill in.
+                lbPositiveInterventions.Visible = true;
+                // Once the user successfully enters a integer they can continue to fill in the next box.
+                // Return is used to do this.
+                return;
+            }
+        }
+
+        private void NegativeInterventionAmountTextBox_Leave(object sender, EventArgs e)
+        {
+            lbNegativeInterventions.Visible = false;
+            // Try and catch is used to deal with the integer exception
+            try
+            {
+                // .Parse just checks if an integer is entered
+                int.Parse(NegativeInterventionAmountTextBox.Text);
+            }
+            catch
+            {
+                // If an integer is not entered, the user will be alerted. They will not be able to move to the next box until they enter an integer.
+                MessageBox.Show("An integer must be entered for intervention amount");
+                NegativeInterventionAmountTextBox.Focus();
+                // A message will be displayed next to the box the user needs to fill in.
+                lbNegativeInterventions.Visible = true;
+                // Once the user successfully enters a integer they can continue to fill in the next box.
+                // Return is used to do this.
+                return;
             }
 
         }

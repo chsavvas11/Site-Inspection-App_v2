@@ -43,6 +43,8 @@ namespace App
             this.IsCompletedTextBox = new System.Windows.Forms.ComboBox();
             this.saveCheckButton = new System.Windows.Forms.Button();
             this.categoryPageTitle = new System.Windows.Forms.Label();
+            this.lbPositiveInterventions = new System.Windows.Forms.Label();
+            this.lbNegativeInterventions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkSelectionDropdown
@@ -69,9 +71,9 @@ namespace App
             this.numberOfPositiveInterventionsLabel.AutoSize = true;
             this.numberOfPositiveInterventionsLabel.Location = new System.Drawing.Point(61, 137);
             this.numberOfPositiveInterventionsLabel.Name = "numberOfPositiveInterventionsLabel";
-            this.numberOfPositiveInterventionsLabel.Size = new System.Drawing.Size(160, 13);
+            this.numberOfPositiveInterventionsLabel.Size = new System.Drawing.Size(164, 13);
             this.numberOfPositiveInterventionsLabel.TabIndex = 2;
-            this.numberOfPositiveInterventionsLabel.Text = "Number of Positive Interventions";
+            this.numberOfPositiveInterventionsLabel.Text = "Number of Positive Interventions*";
             // 
             // positiveInterventionAmountTextBox
             // 
@@ -79,6 +81,7 @@ namespace App
             this.positiveInterventionAmountTextBox.Name = "positiveInterventionAmountTextBox";
             this.positiveInterventionAmountTextBox.Size = new System.Drawing.Size(100, 20);
             this.positiveInterventionAmountTextBox.TabIndex = 3;
+            this.positiveInterventionAmountTextBox.Leave += new System.EventHandler(this.PositiveInterventionAmountTextBox_Leave);
             // 
             // positiveInterventionCommentsTextBox
             // 
@@ -92,9 +95,9 @@ namespace App
             this.positiveInterventionCommentsLabel.AutoSize = true;
             this.positiveInterventionCommentsLabel.Location = new System.Drawing.Point(61, 180);
             this.positiveInterventionCommentsLabel.Name = "positiveInterventionCommentsLabel";
-            this.positiveInterventionCommentsLabel.Size = new System.Drawing.Size(155, 13);
+            this.positiveInterventionCommentsLabel.Size = new System.Drawing.Size(159, 13);
             this.positiveInterventionCommentsLabel.TabIndex = 4;
-            this.positiveInterventionCommentsLabel.Text = "Positive Intervention Comments";
+            this.positiveInterventionCommentsLabel.Text = "Positive Intervention Comments*";
             // 
             // NegativeInterventionAmountTextBox
             // 
@@ -102,15 +105,16 @@ namespace App
             this.NegativeInterventionAmountTextBox.Name = "NegativeInterventionAmountTextBox";
             this.NegativeInterventionAmountTextBox.Size = new System.Drawing.Size(100, 20);
             this.NegativeInterventionAmountTextBox.TabIndex = 7;
+            this.NegativeInterventionAmountTextBox.Leave += new System.EventHandler(this.NegativeInterventionAmountTextBox_Leave);
             // 
             // numberOfNegativeInterventionsLabel
             // 
             this.numberOfNegativeInterventionsLabel.AutoSize = true;
             this.numberOfNegativeInterventionsLabel.Location = new System.Drawing.Point(61, 223);
             this.numberOfNegativeInterventionsLabel.Name = "numberOfNegativeInterventionsLabel";
-            this.numberOfNegativeInterventionsLabel.Size = new System.Drawing.Size(166, 13);
+            this.numberOfNegativeInterventionsLabel.Size = new System.Drawing.Size(170, 13);
             this.numberOfNegativeInterventionsLabel.TabIndex = 6;
-            this.numberOfNegativeInterventionsLabel.Text = "Number of Negative Interventions";
+            this.numberOfNegativeInterventionsLabel.Text = "Number of Negative Interventions*";
             // 
             // NegativeInterventionCommentsTextBox
             // 
@@ -124,18 +128,18 @@ namespace App
             this.NegativeInterventionCommentsLabel.AutoSize = true;
             this.NegativeInterventionCommentsLabel.Location = new System.Drawing.Point(61, 267);
             this.NegativeInterventionCommentsLabel.Name = "NegativeInterventionCommentsLabel";
-            this.NegativeInterventionCommentsLabel.Size = new System.Drawing.Size(161, 13);
+            this.NegativeInterventionCommentsLabel.Size = new System.Drawing.Size(165, 13);
             this.NegativeInterventionCommentsLabel.TabIndex = 8;
-            this.NegativeInterventionCommentsLabel.Text = "Negative Intervention Comments";
+            this.NegativeInterventionCommentsLabel.Text = "Negative Intervention Comments*";
             // 
             // CompletionSelectionLabel
             // 
             this.CompletionSelectionLabel.AutoSize = true;
             this.CompletionSelectionLabel.Location = new System.Drawing.Point(61, 311);
             this.CompletionSelectionLabel.Name = "CompletionSelectionLabel";
-            this.CompletionSelectionLabel.Size = new System.Drawing.Size(106, 13);
+            this.CompletionSelectionLabel.Size = new System.Drawing.Size(110, 13);
             this.CompletionSelectionLabel.TabIndex = 10;
-            this.CompletionSelectionLabel.Text = "Is check completed?";
+            this.CompletionSelectionLabel.Text = "Is check completed?*";
             // 
             // IsCompletedTextBox
             // 
@@ -168,10 +172,34 @@ namespace App
             this.categoryPageTitle.TabIndex = 13;
             this.categoryPageTitle.Text = "autofill";
             // 
+            // lbPositiveInterventions
+            // 
+            this.lbPositiveInterventions.AutoSize = true;
+            this.lbPositiveInterventions.ForeColor = System.Drawing.Color.Red;
+            this.lbPositiveInterventions.Location = new System.Drawing.Point(347, 141);
+            this.lbPositiveInterventions.Name = "lbPositiveInterventions";
+            this.lbPositiveInterventions.Size = new System.Drawing.Size(84, 13);
+            this.lbPositiveInterventions.TabIndex = 14;
+            this.lbPositiveInterventions.Text = "Integer required ";
+            this.lbPositiveInterventions.Visible = false;
+            // 
+            // lbNegativeInterventions
+            // 
+            this.lbNegativeInterventions.AutoSize = true;
+            this.lbNegativeInterventions.ForeColor = System.Drawing.Color.Red;
+            this.lbNegativeInterventions.Location = new System.Drawing.Point(349, 227);
+            this.lbNegativeInterventions.Name = "lbNegativeInterventions";
+            this.lbNegativeInterventions.Size = new System.Drawing.Size(81, 13);
+            this.lbNegativeInterventions.TabIndex = 15;
+            this.lbNegativeInterventions.Text = "Integer required";
+            this.lbNegativeInterventions.Visible = false;
+            // 
             // InspectionCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbNegativeInterventions);
+            this.Controls.Add(this.lbPositiveInterventions);
             this.Controls.Add(this.categoryPageTitle);
             this.Controls.Add(this.saveCheckButton);
             this.Controls.Add(this.IsCompletedTextBox);
@@ -210,5 +238,7 @@ namespace App
         private System.Windows.Forms.ComboBox IsCompletedTextBox;
         private System.Windows.Forms.Button saveCheckButton;
         private System.Windows.Forms.Label categoryPageTitle;
+        private System.Windows.Forms.Label lbPositiveInterventions;
+        private System.Windows.Forms.Label lbNegativeInterventions;
     }
 }
