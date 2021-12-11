@@ -61,6 +61,10 @@ namespace App
                 // Return to avoid running next code block
                 return;
             }
+            else 
+            {
+                MessageBox.Show("Inspection has been added to the database");
+            }
 
             // SAVE INSPECTION TO DB HERE
             DBConnection.getInstanceOfDBConnection().createInspection(Constants.NEW_INSPECTION_QUERY, state.CollectedInspectionInformation);
