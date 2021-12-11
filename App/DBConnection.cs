@@ -31,9 +31,7 @@ namespace App
         ///
         ///methods
         ///
-        /**
-         * Static method to return instance of database connection
-         */
+        // Static method to return instance of database connection
         public static DBConnection getInstanceOfDBConnection()
         {
 
@@ -42,9 +40,7 @@ namespace App
             return _instance;
         }
 
-        /**
-         * Returns a data set built based on the query sent as parameter
-         */
+        // Returns a data set built based on the query sent as parameter
         public DataSet getDataSet(string sqlQuery)
         {
             // Create new dataset
@@ -67,9 +63,7 @@ namespace App
 
         }
 
-        /**
-         * Method that saves new user into the database
-         */
+        // Method that saves new user into the database
         public void createNewUser(string sqlQuery, string username, string password, string accessLevel, string firstName, string lastName)
         {
             using (SqlConnection connectionToDB = new SqlConnection(connectionString))
@@ -99,6 +93,7 @@ namespace App
 
         }
 
+        // Creates new inspeciton and adds it to the database
         public void createInspection(string sqlQuery, InspectionInformationData newInspectionInformation)
         {
             using (SqlConnection connectionToDB = new SqlConnection(connectionString))
@@ -130,6 +125,7 @@ namespace App
             }
         }
 
+        // Creates an inspection check for every element in the passed array and stores them in the database
         public void createInspectionChecks(string sqlQuery, CheckData[] newCheckDataArray)
         {
             using (SqlConnection connectionToDB = new SqlConnection(connectionString))

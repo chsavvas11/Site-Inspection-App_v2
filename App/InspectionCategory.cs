@@ -12,12 +12,13 @@ namespace App
 {
     public partial class InspectionCategory : UserControl
     {
+        // Get instance of state 
         private State state = State.getState();
 
         // Array created to store the selected checks.
         private Check[] checks;
 
-
+        // Constructor
         public InspectionCategory()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace App
             //categoryPageTitle.Text = Utils.getCategoryName(state.ChosenCategoryIndex);
         }
 
+        // Adds items to dropdown
         private void checkSelectionDropDown_Click(object sender, EventArgs e)
         {
             // The 'checks' variable will hold the cehcks for the selected index
@@ -46,6 +48,7 @@ namespace App
     
         }
 
+        // Navigates back to inspection menu
         private void backButton_Click(object sender, EventArgs e)
         {
             // Clicking the back button with call the navigateTo function to go back to the previous page
@@ -113,6 +116,7 @@ namespace App
             }
         }
 
+        // Changes the category name when it's turned back to visible
         private void InspectionCategory_VisibleChanged(object sender, EventArgs e)
         {
             if (this.Visible == true)
@@ -124,6 +128,7 @@ namespace App
 
         }
 
+        // Type checks when user leaves textbox
         private void PositiveInterventionAmountTextBox_Leave(object sender, EventArgs e)
         {
             lbPositiveInterventions.Visible = false;
@@ -147,6 +152,7 @@ namespace App
             }
         }
 
+        // Type checks when user leaves textbox
         private void NegativeInterventionAmountTextBox_Leave(object sender, EventArgs e)
         {
             lbNegativeInterventions.Visible = false;

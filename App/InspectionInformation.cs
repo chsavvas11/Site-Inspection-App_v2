@@ -13,13 +13,14 @@ namespace App
     public partial class InspectionInformation : UserControl
     {
 
-        //calling the state class
+        // Get instance of state
         private State state = State.getState();
         public InspectionInformation()
         {
             InitializeComponent();
         }
 
+        // Saves inspection information to state
         private void informationSaveButton_Click(object sender, EventArgs e)
         {
             // Test to make sure input is being recieved.

@@ -30,6 +30,7 @@ namespace App
             new ChecksCategory('G', "Miscellaneous")
         };
 
+        // Inspection Checks
         public static Check[] CHECKS = {
             new Check(1, "Work At Height", 'A'),
             new Check(2, "Lifting Operations - Crane, Fork Lift Truck, Hoists etc", 'A'),

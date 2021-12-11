@@ -14,6 +14,7 @@ namespace App
 {
     public partial class InspectionMenu : UserControl
     {
+        // Get instance of state 
         private State state = State.getState();
         public InspectionMenu()
         {

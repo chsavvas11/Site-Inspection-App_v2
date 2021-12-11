@@ -17,6 +17,7 @@ namespace App
             InitializeComponent();
         }
 
+        // Navigates to inspection information form
         private void newInspectionButton_Click(object sender, EventArgs e)
         {
             /* When the new inspection button is clicked, the "navigateTo" method is called to bring

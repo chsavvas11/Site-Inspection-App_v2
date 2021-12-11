@@ -12,6 +12,7 @@ namespace App
 {
     public partial class InspectionOverview : UserControl
     {
+        // Get instance of state 
         private State state = State.getState();
 
         public InspectionOverview()
@@ -47,6 +48,7 @@ namespace App
             }
         }
 
+        // Submits inspection and navigates back to dashboard
         private void submitInspectionButton_Click(object sender, EventArgs e)
         {
             // Get comments from TextBox
@@ -61,21 +63,18 @@ namespace App
                 // Return to avoid running next code block
                 return;
             }
-            else 
-            {
-                MessageBox.Show("Inspection has been added to the database");
-            }
 
-            // SAVE INSPECTION TO DB HERE
+            // Use db methods to add inspection to database
             DBConnection.getInstanceOfDBConnection().createInspection(Constants.NEW_INSPECTION_QUERY, state.CollectedInspectionInformation);
             DBConnection.getInstanceOfDBConnection().createInspectionChecks(Constants.NEW_INSPECTION_CHECK_QUERY, state.CollectedCheckData);
+            
+            // Announce success
+            MessageBox.Show("Inspection has been added to the database");
 
-            //DataSet dataSet = DBConnection.getInstanceOfDBConnection().getDataSet("SELECT * FROM [Inspection]");
+            // Navigate back to dashboard
+            Utils.navigateTo(((Panel)this.Parent).Controls, typeof(InspectorDashboard));
+            this.Visible = false;
 
-            //DataTable dataTable = dataSet.Tables[0];
-
-            // If a record exists then user credentials are correct
-            //MessageBox.Show(dataTable.Rows.Count.ToString());
         }
     }
 }

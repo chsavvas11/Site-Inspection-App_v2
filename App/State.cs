@@ -8,9 +8,13 @@ namespace App
 {
     class State
     {
+        // Store instance
         private static State _instance;
 
+        // Store username of user currently logged in
         public string Username { get; set; }
+
+        // Store access level of user currently logged in
         public string AccessLevel { get; set; }
 
         // The below variable will store the inspectors category choice.
@@ -22,14 +26,13 @@ namespace App
         // Array to store check data from the check forms
         public CheckData[] CollectedCheckData { get; set; }
 
+        // Returns instance of state to maintain the same variables
         public static State getState()
         {
             if (_instance == null)
                 _instance = new State();
             return _instance;
         }
-
-        // look at example from inspector information/////
 
        
     }

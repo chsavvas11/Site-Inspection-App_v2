@@ -12,14 +12,18 @@ namespace App
 {
     public partial class Container : Form
     {
+        // Get instance of state 
         private State state = State.getState();
 
+        // Navigates to login form
         private void navigateToLogIn()
         {
             this.Hide();
             (new LoginForm()).Show();
         }
 
+        // Constructor
+        // Determines which dashboard to show
         public Container()
         {
             InitializeComponent();
@@ -43,6 +47,7 @@ namespace App
             }
         }
 
+        // Navigates back to login
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             navigateToLogIn();

@@ -12,6 +12,7 @@ namespace App
 {
     public partial class LoginForm : Form
     {
+        // Get instance of state 
         private State state = State.getState();
 
         public LoginForm()
@@ -30,6 +31,7 @@ namespace App
             (new Container()).Show(); // NOTE: check if there is a way to show existing container
         }
 
+        // Runs credential checks and authorises user if successful
         private void LogInButton_Click(object sender, EventArgs e)
         {
             // Get username and password from TextBox components

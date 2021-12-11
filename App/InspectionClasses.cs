@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace App
 {
+
+    // Check category class
     class ChecksCategory
     {
         public char index { get; private set; }
@@ -18,6 +20,7 @@ namespace App
         }
     }
 
+    // Check class
     class Check
     {
         public int number { get; private set; }
@@ -32,6 +35,7 @@ namespace App
         }
     }
 
+    // Inspection information data class
     class InspectionInformationData
     {
         //The following lines create variables and set their datatypes to store the user input, get and set are used to set their contents.
@@ -60,6 +64,7 @@ namespace App
 
     }
 
+    // Check data class
     class CheckData
     {
         // Variables for the check form are created
