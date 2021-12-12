@@ -28,7 +28,7 @@ namespace App
         private void navigateToApp()
         {
             this.Hide();
-            (new Container()).Show(); // NOTE: check if there is a way to show existing container
+            (new Container()).Show();
         }
 
         // Runs credential checks and authorises user if successful

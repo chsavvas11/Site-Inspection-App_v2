@@ -52,7 +52,6 @@ namespace App
             // 
             this.SidePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SidePanel.Controls.Add(this.LogOutButton);
-            this.SidePanel.Controls.Add(this.DashboardButton);
             this.SidePanel.Controls.Add(this.UsernameLabel);
             this.SidePanel.Controls.Add(this.UserPictureBox);
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -70,15 +69,6 @@ namespace App
             this.LogOutButton.Text = "Log Out";
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
-            // DashboardButton
-            // 
-            this.DashboardButton.Location = new System.Drawing.Point(30, 359);
-            this.DashboardButton.Name = "DashboardButton";
-            this.DashboardButton.Size = new System.Drawing.Size(85, 23);
-            this.DashboardButton.TabIndex = 2;
-            this.DashboardButton.Text = "Dashboard";
-            this.DashboardButton.UseVisualStyleBackColor = true;
             // 
             // UsernameLabel
             // 
